@@ -1,0 +1,141 @@
+.page-container {
+  position: absolute;
+  width: calc(100vw - 20%);
+  height: 100vh;
+  left: 20%;
+  padding: 0;
+  margin: 0;
+  .page-title {
+    margin-top: 40px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    color: #fff;
+  }
+  .table-header {
+    display: flex;
+    height: 65px;
+    width: 75%;
+    margin-top: 16px;
+    align-items: center;
+    p {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    div {
+      display: flex;
+      .header-pos {
+        margin: 0 35px 0 0;
+      }
+      .header-names {
+        margin: 0 455px 0 100px;
+      }
+      .header-chall {
+        margin: 0 160px 0 0;
+      }
+      .header-ex {
+        margin: 0;
+      }
+    }
+  }
+  .table-item-container {
+    display: flex;
+    margin: 0 0 8px 0;
+
+    .position {
+      background: var(--third);
+      border-radius: 5px 0px 0px 5px;
+      display: flex;
+      width: 72px;
+      height: 96px;
+      margin: 0 4px 0 0;
+      .position-number {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        color: #fff;
+        margin: auto;
+      }
+    }
+    .player-container {
+      background: var(--third);
+      border-radius: 0px 5px 5px 0px;
+      width: 884px;
+      height: 96px;
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      .avatar {
+        width: 2px;
+        height: 80%;
+        background: var(--secondary);
+        margin: 0 17px 0 24px;
+        overflow: hidden;
+      }
+      .player-name-level {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 0;
+        width: 494px;
+        .player-name {
+          font-family: Inter;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 24px;
+          color: #fff;
+        }
+        .player-level {
+          margin: 8px 0 0 0;
+          display: flex;
+          width: 494px;
+          p {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 19px;
+            color: #fff;
+            margin: 0 10px 0 0px;
+          }
+        }
+      }
+      .blue {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #aaa;
+        margin: 0 4px 0 0;
+        cursor: pointer;
+      }
+      .challs-completes {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #fff;
+        display: flex;
+        margin: 0 58px 0 0;
+      }
+      .xp {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #fff;
+        display: flex;
+      }
+    }
+  }
+}
