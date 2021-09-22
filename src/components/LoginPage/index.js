@@ -1,17 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../images/logo.svg";
-import { useState } from "react";
-import { Input } from "antd";
 
 const LoginPage = () => {
   const [registration, setRegistration] = useState(false);
-  let auth = {};
-  if ((auth.length = 2)) {
-    let login = "login";
-  }
-  if ((auth.length = 3)) {
-    let cadastrar = "cadastrar";
-  }
+  const [auth, setAuth] = useState({});
+  const setAuthValues = () => {
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+    if (registration) {
+      let name = document.getElementById("nome").value;
+      setAuth({ name, pass, email });
+    } else {
+      setAuth({ pass, email });
+    }
+  };
+  useEffect(() => {
+    console.log(auth);
+  }, [auth]);
 
   return (
     <div className="loginpage-container">
@@ -21,22 +26,26 @@ const LoginPage = () => {
           {registration && (
             <div className="auths">
               <p>Nome:</p>
-              <input placeholder="Nome" type="text" value={auth.name} />
+              <input placeholder="Nome" type="text" id="nome" />
             </div>
           )}
+
           <div className="auths">
             <p>Email:</p>
-            <input placeholder="Email" type="text" value={auth.email} />
+            <input placeholder="Email" type="text" id="email" />
           </div>
+
           <div className="auths">
             <p>Senha:</p>
-            <input placeholder="Senha" type="password" value={auth.password} />
+            <input placeholder="Senha" type="password" id="pass" />
           </div>
+
           <div className="bottom-options">
             <div
               className="login button"
               onClick={() => {
                 setRegistration(false);
+                setAuthValues();
               }}
             >
               <p>Login</p>
@@ -46,6 +55,7 @@ const LoginPage = () => {
               className="create button"
               onClick={() => {
                 setRegistration(true);
+                setAuthValues();
               }}
             >
               <p>Criar conta</p>
