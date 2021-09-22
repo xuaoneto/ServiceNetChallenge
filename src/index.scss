@@ -1,0 +1,23 @@
+@import "./components/LoginPage/style.scss";
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
+
+//colors
+body {
+  --primary: #2d2d32;
+  --secondary: #fac921;
+  --third: rgb(255, 255, 255, 0.2);
+}
+body {
+  background: var(--primary);
+  padding: 0;
+  margin: 0;
+  font-family: "Titillium Web", sans-serif;
+}
+#root {
+  padding: 0;
+  margin: 0;
+}
+.App {
+  padding: 0;
+  margin: 0;
+}
