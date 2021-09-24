@@ -1,26 +1,50 @@
-import React, { Link } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../images/logo.svg";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import axios from "axios";
-import { history } from "../../history";
+import { authEmail, authPass } from "../Requests";
+import { useCookies } from "react-cookie";
+import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
-  const handleSubmit = (values) => {
-    console.log(values);
-    axios.post("http://localhost:8080/v1/api/auth", values).then((resp) => {
-      const { data } = resp;
-      if (data) {
-        localStorage.setItem("app-token", data);
-        history.push("/");
-      }
-    });
+  const history = useHistory();
+  const [cookies, setCookies] = useCookies(["app-token"]);
+  const [loginerror, setError] = useState(false);
+  let token = {};
+  const createAcc = () => {
+    history.push("/create");
   };
-
   const validations = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().min(8).required(),
   });
+
+  function Submit(values) {
+    async function auths() {
+      const checkemail = await authEmail(values);
+      const checkpass = await authPass(values);
+      console.log(checkemail, checkpass);
+      if (
+        (checkemail.data[0] != undefined) &
+        (checkpass.data[0] != undefined)
+      ) {
+        if (checkemail.data[0].name === checkpass.data[0].name) {
+          token = {
+            email: checkemail.data[0].email,
+            password: checkpass.data[0].password,
+          };
+
+          setCookies("token", JSON.stringify(token));
+          console.log(cookies.token);
+          setError(false);
+          history.push("/");
+        }
+      } else {
+        setError(true);
+      }
+    }
+    auths();
+  }
 
   return (
     <div className="loginpage-container">
@@ -28,7 +52,7 @@ const LoginPage = () => {
         <img src={logo} width="250px" height="auto" />
         <Formik
           initialValues={{}}
-          onSubmit={handleSubmit}
+          onSubmit={Submit}
           validationSchema={validations}
         >
           <Form className="auths-container">
@@ -62,6 +86,9 @@ const LoginPage = () => {
                 name="password"
                 className="Login-Error"
               />
+              {loginerror && (
+                <p className="login-error">Login ou senha incorretos</p>
+              )}
             </div>
 
             <div className="bottom-options">
@@ -69,8 +96,14 @@ const LoginPage = () => {
                 <p>Login</p>
               </button>
 
-              <button type="button" className="create button">
-                <a href="/create">Criar conta</a>
+              <button
+                type="button"
+                onClick={() => {
+                  createAcc();
+                }}
+                className="create button"
+              >
+                <p>Criar conta</p>
               </button>
             </div>
           </Form>

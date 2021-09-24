@@ -1,0 +1,103 @@
+{
+  "users": [
+    {
+      "name": "João",
+      "email": "joao@gmail.com",
+      "password": "00000000"
+    },
+    {
+      "name": "Kalynne",
+      "email": "kalynne@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Dalmo",
+      "email": "dalmo@gmail.com",
+      "password": "12312312"
+    },
+    {
+      "name": "Leda",
+      "email": "leda@gmail.com",
+      "password": "12312312323333"
+    }
+  ],
+  "clients": [
+    {
+      "id": "1",
+      "Nome": "Marcos",
+      "Telefone": "83999999999",
+      "Endereco": "Rua mar azul",
+      "Numero": "476",
+      "Cidade": "Cabedelo",
+      "Estado": "Paraíba",
+      "Pais": "Brasil",
+      "CEP": "88888888"
+    },
+    {
+      "id": "2",
+      "Nome": "João",
+      "Telefone": "83999999999",
+      "Endereco": "Rua mar azul",
+      "Numero": "476",
+      "Cidade": "Cabedelo",
+      "Estado": "Paraíba",
+      "Pais": "Brasil",
+      "CEP": "88888888"
+    },
+    {
+      "id": "3",
+      "Nome": "Amarildo",
+      "Telefone": "83999999999",
+      "Endereco": "Rua mar azul",
+      "Numero": "476",
+      "Cidade": "Cabedelo",
+      "Estado": "Paraíba",
+      "Pais": "Brasil",
+      "CEP": "88888888"
+    },
+    {
+      "id": "4",
+      "Nome": "Cristina",
+      "Telefone": "83999999999",
+      "Endereco": "Rua mar azul",
+      "Numero": "476",
+      "Cidade": "Cabedelo",
+      "Estado": "Paraíba",
+      "Pais": "Brasil",
+      "CEP": "88888888"
+    },
+    {
+      "id": "5",
+      "Nome": "Maria",
+      "Telefone": "83999999999",
+      "Endereco": "Rua mar azul",
+      "Numero": "476",
+      "Cidade": "Cabedelo",
+      "Estado": "Paraíba",
+      "Pais": "Brasil",
+      "CEP": "88888888"
+    },
+    {
+      "id": "6",
+      "Nome": "Mácia",
+      "Telefone": "83999999999",
+      "Endereco": "Rua mar azul",
+      "Numero": "476",
+      "Cidade": "Cabedelo",
+      "Estado": "Paraíba",
+      "Pais": "Brasil",
+      "CEP": "88888888"
+    },
+    {
+      "id": "7",
+      "Nome": "Kalynne",
+      "Telefone": "83999999999",
+      "Endereco": "Rua mar azul",
+      "Numero": "476",
+      "Cidade": "Cabedelo",
+      "Estado": "Paraíba",
+      "Pais": "Brasil",
+      "CEP": "88888888"
+    }
+  ]
+}

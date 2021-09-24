@@ -6,26 +6,26 @@ import logo from "../../images/logo.svg";
 
 const SideMenu = () => {
   return (
-    <div class="menu-container">
+    <div className="menu-container">
       {/* LOGO */}
-      <div class="logo" href="#">
-        <img src={logo} width="50px" height="auto" />
+      <div className="logo" href="#">
+        <img src={logo} width="70px" height="auto" />
       </div>
       {/* Itens Menu */}
-      <div class="menu">
-        <div class="menu-item" id="home" onClick={() => {}}>
-          <div class="active"></div>
+      <div className="menu">
+        <div className="menu-item" id="home" onClick={() => {}}>
+          <div className="active"></div>
           <img src={create} width="30px" height="auto" />
         </div>
 
-        <div class="menu-item" id="leaderboard" onClick={() => {}}>
-          <div class="active"></div>
+        <div className="menu-item" id="leaderboard" onClick={() => {}}>
+          <div className="active"></div>
           <img src={update} width="30px" height="auto" />
         </div>
 
-        <div class="menu-item" id="leaderboard" onClick={() => {}}>
-          <div class="active"></div>
-          <img src={del} width="30px" height="auto" />
+        <div className="menu-item" id="leaderboard" onClick={() => {}}>
+          <div className="active"></div>
+          <img src={del} width="23px" height="auto" />
         </div>
       </div>
     </div>

@@ -1,106 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SideMenu from "../SideMenu";
+import { getClients } from "../Requests";
 
 const ClientsPage = () => {
-  const [maps, setClientDel] = useState(false);
-  let clients = [
-    {
-      Nome: "Marcos",
-      Telefone: "83999999999",
-      Endereco: "Rua mar azul",
-      Numero: "476",
-      Cidade: "Cabedelo",
-      Estado: "Paraíba",
-      Pais: "Brasil",
-      CEP: "88888888",
-    },
-    {
-      Nome: "João",
-      Telefone: "83999999999",
-      Endereco: "Rua mar azul",
-      Numero: "476",
-      Cidade: "Cabedelo",
-      Estado: "Paraíba",
-      Pais: "Brasil",
-      CEP: "88888888",
-    },
-    {
-      Nome: "Amarildo",
-      Telefone: "83999999999",
-      Endereco: "Rua mar azul",
-      Numero: "476",
-      Cidade: "Cabedelo",
-      Estado: "Paraíba",
-      Pais: "Brasil",
-      CEP: "88888888",
-    },
-    {
-      Nome: "Cristina",
-      Telefone: "83999999999",
-      Endereco: "Rua mar azul",
-      Numero: "476",
-      Cidade: "Cabedelo",
-      Estado: "Paraíba",
-      Pais: "Brasil",
-      CEP: "88888888",
-    },
-    {
-      Nome: "Maria",
-      Telefone: "83999999999",
-      Endereco: "Rua mar azul",
-      Numero: "476",
-      Cidade: "Cabedelo",
-      Estado: "Paraíba",
-      Pais: "Brasil",
-      CEP: "88888888",
-    },
-    {
-      Nome: "Maria",
-      Telefone: "83999999999",
-      Endereco: "Rua mar azul",
-      Numero: "476",
-      Cidade: "Cabedelo",
-      Estado: "Paraíba",
-      Pais: "Brasil",
-      CEP: "88888888",
-    },
-    {
-      Nome: "Maria",
-      Telefone: "83999999999",
-      Endereco: "Rua mar azul",
-      Numero: "476",
-      Cidade: "Cabedelo",
-      Estado: "Paraíba",
-      Pais: "Brasil",
-      CEP: "88888888",
-    },
-  ];
+  const [clients, setClients] = useState([]);
+  const [maps, setClientDel] = useState((id) => {
+    let element = document.getElementById(id);
+  });
+  useEffect(() => {
+    async function allClients() {
+      const clients = await getClients();
+      setClients(clients.data);
+    }
+    allClients();
+  }, [clients.data]);
+
   return (
-    <div class="general-container">
+    <div className="general-container">
       <SideMenu />
-      <div class="page-container">
-        <h1 class="page-title">Clientes</h1>
-        <div class="table-header">
-          <div class="left-side">
-            <p class="header-names">Usuário</p>
+      <div className="page-container">
+        <h1 className="page-title">Clientes</h1>
+        <div className="table-header">
+          <div className="left-side">
+            <p className="header-pos">ID</p>
+            <p className="header-names">Usuário</p>
           </div>
-          <div class="right-side">
-            <p class="header-chall">CEP</p>
-            <p class="header-ex">País</p>
+          <div className="right-side">
+            <p className="header-chall">CEP</p>
+            <p className="header-ex">País</p>
           </div>
         </div>
-        {/* <!-- Colocar map neste bloco --> */}
+
         {clients.map((item, index) => {
           return (
-            <div key={index} id={index} class="table-item-container">
-              <div class="position">
-                <p class="position-number">{index + 1}</p>
+            <div key={index} id={index} className="table-item-container">
+              <div className="position">
+                <p className="position-number">{index + 1}</p>
               </div>
-              <div class="player-container">
-                <div class="avatar"></div>
-                <div class="player-name-level">
-                  <div class="player-name">{item.Nome}</div>
-                  <div class="player-level">
+              <div className="player-container">
+                <div className="avatar"></div>
+                <div className="player-name-level">
+                  <div className="player-name">{item.Nome}</div>
+                  <div className="player-level">
                     <p>
                       Telefone:
                       <br />
@@ -123,9 +64,9 @@ const ClientsPage = () => {
                     </p>
                   </div>
                 </div>
-                <div class="challs-completes">
+                <div className="challs-completes">
                   <p
-                    class="blue"
+                    className="blue"
                     onClick={() => {
                       setClientDel(!maps);
                     }}
@@ -133,14 +74,14 @@ const ClientsPage = () => {
                     CEP: {item.CEP}
                   </p>
                 </div>
-                <div class="xp">
-                  <p class="blue">País: {item.Pais}</p>
+                <div className="xp">
+                  <p className="blue">País: {item.Pais}</p>
                 </div>
+                <div className="map"></div>
               </div>
             </div>
           );
         })}
-        {/* <!-- Final do bloco do map --> */}
       </div>
     </div>
   );
