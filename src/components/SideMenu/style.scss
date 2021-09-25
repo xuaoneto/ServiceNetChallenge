@@ -18,6 +18,7 @@
   background: linear-gradient(180deg, var(--primary) 0%, var(--third) 100%);
   filter: drop-shadow(0px 0px 60px rgba(0, 0, 0, 0.05));
   justify-content: center;
+  z-index: 100;
   .logo {
     position: absolute;
     top: 32px;
@@ -41,7 +42,7 @@
       cursor: pointer;
       margin: 5px 0 5px 0;
 
-      .active {
+      .styled-bar {
         height: 100%;
         width: 4px;
         background: var(--secondary);
@@ -51,12 +52,47 @@
       }
       img {
         transition: all 0.3s;
-      }
-      &:hover {
-        img {
+        &:hover {
           transform: scale(1.2);
         }
       }
     }
   }
+}
+.menu-split {
+  position: absolute;
+  top: 0;
+  left: -340px;
+  width: 340px;
+  height: 450px;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s;
+  background: #888;
+  align-items: center;
+  border-radius: 15px;
+  padding: 15px 0 0 0;
+  justify-content: center;
+  .create {
+    display: flex;
+    padding: 10px;
+    bottom: 20px;
+    right: 25px;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.2);
+    }
+    p {
+      color: white;
+      margin: auto;
+    }
+  }
+}
+.menu-split.active {
+  transform: translateX(450px);
+  display: flex;
+  transition: all 0.4s;
+  opacity: 1;
+  z-index: 50;
 }

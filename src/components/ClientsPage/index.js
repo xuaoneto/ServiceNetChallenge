@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from "react";
 import SideMenu from "../SideMenu";
-import { getClients } from "../Requests";
+import { getClients, authToken, deleteClient } from "../Requests";
+import { useHistory } from "react-router-dom";
 
 const ClientsPage = () => {
+  const history = useHistory();
   const [clients, setClients] = useState([]);
-  const [maps, setClientDel] = useState((id) => {
-    let element = document.getElementById(id);
-  });
+
+  async function touchDeleteClient(id) {
+    const deleted = await deleteClient(id);
+    setClients([]);
+    return deleted;
+  }
   useEffect(() => {
     async function allClients() {
-      const clients = await getClients();
-      setClients(clients.data);
+      const logged = await authToken();
+      if (logged.data[0] != undefined) {
+        const resp = await getClients();
+        setTimeout(function () {
+          setClients(resp.data);
+        }, 500);
+      } else {
+        history.push("/login");
+      }
     }
     allClients();
-  }, [clients.data]);
+  }, [clients]);
 
   return (
     <div className="general-container">
@@ -31,57 +43,64 @@ const ClientsPage = () => {
           </div>
         </div>
 
-        {clients.map((item, index) => {
-          return (
-            <div key={index} id={index} className="table-item-container">
-              <div className="position">
-                <p className="position-number">{index + 1}</p>
-              </div>
-              <div className="player-container">
-                <div className="avatar"></div>
-                <div className="player-name-level">
-                  <div className="player-name">{item.Nome}</div>
-                  <div className="player-level">
-                    <p>
-                      Telefone:
-                      <br />
-                      {item.Telefone}
-                    </p>
-                    <p>
-                      Endereço: {item.Endereco}
-                      <br />
-                      Número: {item.Numero}
-                    </p>
-                    <p>
-                      Cidade:
-                      <br />
-                      {item.Cidade}
-                    </p>
-                    <p>
-                      Estado:
-                      <br />
-                      {item.Estado}
-                    </p>
-                  </div>
+        {clients[0] === undefined ? (
+          <p className="login-error-delay">
+            Login não identificado ou Sem dados
+          </p>
+        ) : (
+          clients.map((item, index) => {
+            return (
+              <div key={index} id={index} className="table-item-container">
+                <div className="position">
+                  <p className="position-number">{item.id}</p>
                 </div>
-                <div className="challs-completes">
-                  <p
-                    className="blue"
+                <div className="player-container">
+                  <button
+                    className="button delete"
                     onClick={() => {
-                      setClientDel(!maps);
+                      touchDeleteClient(item.id);
                     }}
                   >
-                    CEP: {item.CEP}
-                  </p>
+                    <p>X</p>
+                  </button>
+                  <div className="avatar"></div>
+                  <div className="player-name-level">
+                    <div className="player-name">{item.Nome}</div>
+                    <div className="player-level">
+                      <p>
+                        Telefone:
+                        <br />
+                        {item.Telefone}
+                      </p>
+                      <p>
+                        Endereço: {item.Endereco}
+                        <br />
+                        Número: {item.Numero}
+                      </p>
+                      <p>
+                        Cidade:
+                        <br />
+                        {item.Cidade}
+                      </p>
+                      <p>
+                        Estado:
+                        <br />
+                        {item.Estado}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="challs-completes">
+                    <p className="blue">CEP: {item.CEP}</p>
+                  </div>
+                  <div className="xp">
+                    <p className="blue">País: {item.Pais}</p>
+                  </div>
+                  <div className="map"></div>
                 </div>
-                <div className="xp">
-                  <p className="blue">País: {item.Pais}</p>
-                </div>
-                <div className="map"></div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
     </div>
   );

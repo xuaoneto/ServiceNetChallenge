@@ -15,24 +15,6 @@
       display: flex;
       flex-direction: column;
       width: 80%;
-
-      .auths {
-        display: flex;
-        margin: 0 0 25px 0;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        p {
-          color: white;
-          margin: 0;
-        }
-        .login-error {
-          margin: 5px auto 0 auto;
-        }
-        .field {
-          width: 70%;
-          height: 25px;
-        }
-      }
     }
     .bottom-options {
       width: 100%;
@@ -42,13 +24,13 @@
       :nth-child(1) {
         margin-right: 20px;
       }
-
       .button {
         background: var(--secondary);
         border-radius: 10px;
         padding: 15px;
         transition: all 0.3s;
         cursor: pointer;
+
         a {
           text-decoration: none;
           margin: 0;
@@ -69,4 +51,28 @@
   width: 100%;
   margin: 5px 0 0 30%;
   color: white;
+}
+.button {
+  background: var(--secondary);
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.auths {
+  display: flex;
+  margin: 0 0 25px 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  p {
+    color: white;
+    margin: 0;
+  }
+  .login-error {
+    margin: 5px auto 0 auto;
+  }
+  .field {
+    width: 70%;
+    height: 25px;
+  }
 }

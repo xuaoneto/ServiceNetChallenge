@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { history } from "../../history";
-import { useCookies } from "react-cookie";
+import Cookies from "universal-cookie";
 
 //Sei que deveriam algumas coisas serem feitas em um back-end, mas o tempo de 3 dias que me foi proposto foi muito curto
 
@@ -16,27 +15,48 @@ const authPass = (values) => {
   );
   return resp;
 };
-
-const createNewUser = (newAcc) => {
-  const resp = axios.post(`http://localhost:3500/users`, newAcc);
-  if (resp) {
-    console.log(resp);
-    console.log("conta cadastrada com sucesso");
-    history.push("/login");
-  }
+const authToken = () => {
+  const cookies = new Cookies();
+  const resp = axios.get(
+    `http://localhost:3500/users?token=${cookies.get("token")}`
+  );
+  return resp;
 };
 
+const createNewUser = (newAcc) => {
+  function getRandomString(tamanho) {
+    var string = "";
+    var chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < tamanho; i++) {
+      string += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return string;
+  }
+  newAcc.token = getRandomString(8);
+  const resp = axios.post(`http://localhost:3500/users`, newAcc);
+  return resp;
+};
+
+const viaCEP = (cep) => {
+  const resp = axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+  return resp;
+};
+const getUsersLength = () => {
+  const resp = axios.get(`http://localhost:3500/users`);
+  return resp;
+};
+const searchClients = (id) => {
+  const resp = axios.get(`http://localhost:3500/clients/${id}`);
+  return resp;
+};
 //CRUD
 const createClient = (newClient) => {
   const resp = axios.post(`http://localhost:3500/clients`, newClient);
-  if (resp) {
-    console.log(resp);
-    console.log("Cliente cadastrado com sucesso");
-  }
+  return resp;
 };
 const getClients = () => {
   const resp = axios.get(`http://localhost:3500/clients`);
-  console.log(resp);
   return resp;
 };
 const updateClient = (id, updated) => {
@@ -48,10 +68,7 @@ const updateClient = (id, updated) => {
 };
 const deleteClient = (id) => {
   const resp = axios.delete(`http://localhost:3500/clients/${id}`);
-  if (resp) {
-    console.log(resp);
-    console.log("Cliente deletado com sucesso");
-  }
+  return resp;
 };
 //FIM do CRUD de clientes
 
@@ -63,4 +80,8 @@ export {
   updateClient,
   deleteClient,
   createNewUser,
+  authToken,
+  getUsersLength,
+  viaCEP,
+  searchClients,
 };

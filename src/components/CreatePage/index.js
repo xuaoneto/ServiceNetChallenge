@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../images/logo.svg";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import axios from "axios";
-import { history } from "../../history";
+import { useHistory } from "react-router-dom";
+import { createNewUser, authEmail, getUsersLength } from "../Requests";
 
 const CreateAccPage = () => {
-  const handleSubmit = (values) => {
-    console.log(values);
-    axios.post("http://localhost:8080/v1/api/create", values).then((resp) => {
-      const { data } = resp;
-      if (data) {
-        localStorage.setItem("app-token", data);
-        history.push("/login");
-      }
-    });
-  };
+  const history = useHistory();
+  const [emailerror, setEmailError] = useState(false);
 
+  async function handleSubmit(values) {
+    const check = await authEmail(values);
+
+    if (check.data[0] === undefined) {
+      const id = await getUsersLength();
+      console.log(id, "kaskdak");
+      values.id = (id.data.length + 1).toString();
+      console.log(values);
+      const resp = await createNewUser(values);
+      console.log(resp);
+      history.push("/login");
+    } else {
+      setEmailError(true);
+    }
+  }
   const validations = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().min(8).required(),
@@ -79,6 +86,7 @@ const CreateAccPage = () => {
                 name="password"
                 className="Login-Error"
               />
+              {emailerror && <p className="login-error">Email já cadastrado</p>}
             </div>
 
             <div className="bottom-options">

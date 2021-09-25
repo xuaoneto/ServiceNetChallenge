@@ -3,12 +3,13 @@ import logo from "../../images/logo.svg";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { authEmail, authPass } from "../Requests";
-import { useCookies } from "react-cookie";
+import Cookies from "universal-cookie";
 import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
   const history = useHistory();
-  const [cookies, setCookies] = useCookies(["app-token"]);
+  const cookies = new Cookies();
+
   const [loginerror, setError] = useState(false);
   let token = {};
   const createAcc = () => {
@@ -28,14 +29,12 @@ const LoginPage = () => {
         (checkemail.data[0] != undefined) &
         (checkpass.data[0] != undefined)
       ) {
-        if (checkemail.data[0].name === checkpass.data[0].name) {
-          token = {
-            email: checkemail.data[0].email,
-            password: checkpass.data[0].password,
-          };
-
-          setCookies("token", JSON.stringify(token));
-          console.log(cookies.token);
+        if (
+          checkemail.data[0].token ===
+          checkpass.data.find((pass) => pass.email === checkemail.data[0].email)
+            .token
+        ) {
+          cookies.set("token", checkemail.data[0].token);
           setError(false);
           history.push("/");
         }
