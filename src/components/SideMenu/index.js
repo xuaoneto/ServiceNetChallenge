@@ -6,12 +6,19 @@ import logo from "../../images/logo.svg";
 import InputMask from "react-input-mask";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import { viaCEP, getClients, createClient, searchClients } from "../Requests";
+import {
+  viaCEP,
+  getClients,
+  createClient,
+  searchClients,
+  updateClient,
+} from "../Requests";
 
 const SideMenu = () => {
   const [stateDelete, setStateDelete] = useState(false);
   const [stateCreate, setStateCreate] = useState(false);
   const [checkCep, setCheckCep] = useState(false);
+  const [stateUpdate, setStateUpdate] = useState(false);
 
   useEffect(() => {
     if (checkCep) {
@@ -50,6 +57,19 @@ const SideMenu = () => {
     }
     return string;
   }
+  async function SubmitChange(values) {
+    values.id = document.getElementById("id-client").value;
+    values.campo = document.getElementById("campo").value;
+    values.alteracao = document.getElementById("alteracao").value;
+
+    let changedobject = JSON.parse(
+      `{"${values.campo}": "${values.alteracao}" }`
+    );
+    console.log(changedobject);
+    const resp = await updateClient(values.id, changedobject);
+    console.log(resp);
+  }
+
   async function SubmitClient(values) {
     console.log(values);
     const resp = await getClients();
@@ -67,7 +87,7 @@ const SideMenu = () => {
     const createC = await createClient(values);
 
     console.log(values, "chegou2");
-    console.log(create);
+    console.log(createC);
   }
 
   useEffect(() => {
@@ -77,7 +97,14 @@ const SideMenu = () => {
     } else {
       document.getElementsByClassName("menu-split")[0].className = "menu-split";
     }
-  }, [stateCreate]);
+    if (stateUpdate) {
+      document.getElementsByClassName("menu-split update")[0].className =
+        "menu-split update active";
+    } else {
+      document.getElementsByClassName("menu-split update")[0].className =
+        "menu-split update";
+    }
+  }, [stateCreate, stateUpdate]);
 
   return (
     <div className="menu-container">
@@ -156,9 +183,40 @@ const SideMenu = () => {
           />
         </div>
 
-        <div className="menu-item" id="update-client" onClick={() => {}}>
+        <div className="menu-item" id="update-client">
+          <div className="menu-split update">
+            <Formik initialValues={{}} onSubmit={SubmitChange}>
+              <Form className="auths-container">
+                <div className="auths" id="id-container">
+                  <p>id:</p>
+                  <InputMask mask="****" type="text" name="id" id="id-client" />
+                </div>
+                <div className="auths" id="field-name-changes">
+                  <p>
+                    Nome do campo de alteração:{" "}
+                    <nobr>Colocar sem acento e igual nome na tabela</nobr>
+                  </p>
+                  <Field type="text" name="campo" id="campo" />
+                </div>
+                <div className="auths" id="field-changes">
+                  <p>Alteração:</p>
+                  <Field type="text" name="alteracao" id="alteracao" />
+                </div>
+                <button type="submit" className="button create">
+                  <p>Editar</p>
+                </button>
+              </Form>
+            </Formik>
+          </div>
           <div className="styled-bar"></div>
-          <img src={update} width="25px" height="auto" />
+          <img
+            src={update}
+            width="25px"
+            height="auto"
+            onClick={() => {
+              setStateUpdate(!stateUpdate);
+            }}
+          />
         </div>
 
         <div

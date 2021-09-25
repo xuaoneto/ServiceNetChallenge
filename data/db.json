@@ -85,7 +85,7 @@
       "CEP": "58102-252"
     },
     {
-      "Nome": "Leda",
+      "Nome": "Test",
       "Numero": "123",
       "id": "5qOM",
       "Telefone": "(83)99955-2542",
@@ -96,26 +96,15 @@
       "CEP": "58102-252"
     },
     {
-      "Nome": "Maria",
-      "Numero": "123",
-      "id": "oLAo",
-      "Telefone": "(83)99955-2542",
+      "Nome": "Carlos",
+      "Numero": "1234",
+      "id": "gHja",
+      "Telefone": "(83)89282-5925",
       "Endereco": "Avenida Oceano Atlântico",
       "Cidade": "Cabedelo",
       "Estado": "PB",
       "Pais": "Brasil",
-      "CEP": "58310-000"
-    },
-    {
-      "Nome": "Carlos",
-      "Numero": "738",
-      "id": "SQGB",
-      "Telefone": "(83)96542-5225",
-      "Endereco": "Rua Golfo San Fernando",
-      "Cidade": "Cabedelo",
-      "Estado": "PB",
-      "Pais": "Brasil",
-      "CEP": "58102-138"
+      "CEP": "58102-252"
     }
   ]
 }

@@ -61,10 +61,7 @@ const getClients = () => {
 };
 const updateClient = (id, updated) => {
   const resp = axios.patch(`http://localhost:3500/clients/${id}`, updated);
-  if (resp) {
-    console.log(resp);
-    console.log("Cliente atualizado com sucesso");
-  }
+  return resp;
 };
 const deleteClient = (id) => {
   const resp = axios.delete(`http://localhost:3500/clients/${id}`);

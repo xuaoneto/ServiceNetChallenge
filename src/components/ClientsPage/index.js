@@ -9,7 +9,6 @@ const ClientsPage = () => {
 
   async function touchDeleteClient(id) {
     const deleted = await deleteClient(id);
-    setClients([]);
     return deleted;
   }
   useEffect(() => {
