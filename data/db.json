@@ -48,63 +48,114 @@
       "password": "amdsakdmaskd",
       "id": "7",
       "token": "mBGKDcnB"
+    },
+    {
+      "name": "Kalynne",
+      "email": "kalynneP@gmail.com",
+      "password": "00000000",
+      "id": "8",
+      "token": "RhN8GEkj"
     }
   ],
   "clients": [
-    {
-      "id": "2",
-      "Nome": "Kalynne",
-      "Telefone": "83999999999",
-      "Endereco": "Rua mar azul",
-      "Numero": "476",
-      "Cidade": "Cabedelo",
-      "Estado": "Paraíba",
-      "Pais": "Brasil",
-      "CEP": "88888888"
-    },
-    {
-      "Nome": "João Fernandes Praxedes Neto",
-      "Cidade": "Cabedelo",
-      "Estado": "PB",
-      "Pais": "Brasil",
-      "Endereco": "Avenida Oceano Atlântico, 254",
-      "Numero": "123",
-      "id": "3",
-      "Telefone": "(12)31312-3123",
-      "CEP": "58102-252"
-    },
-    {
-      "Nome": "Dalmo",
-      "Numero": "123",
-      "id": "4",
-      "Telefone": "(83)99955-2542",
-      "Endereco": "Avenida Oceano Atlântico",
-      "Cidade": "Cabedelo",
-      "Estado": "PB",
-      "Pais": "Brasil",
-      "CEP": "58102-252"
-    },
     {
       "Nome": "Test",
       "Numero": "123",
       "id": "5qOM",
       "Telefone": "(83)99955-2542",
-      "Endereco": "Avenida Oceano Atlântico",
+      "Endereco": "Test",
       "Cidade": "Cabedelo",
       "Estado": "PB",
       "Pais": "Brasil",
       "CEP": "58102-252"
     },
     {
-      "Nome": "Carlos",
-      "Numero": "1234",
-      "id": "gHja",
-      "Telefone": "(83)89282-5925",
-      "Endereco": "Avenida Oceano Atlântico",
+      "Nome": "Kalynne",
+      "Numero": "123",
+      "id": "hame",
+      "Telefone": "(88)88888-8888",
+      "Endereco": "Rua Golfo San Fernando",
       "Cidade": "Cabedelo",
       "Estado": "PB",
       "Pais": "Brasil",
-      "CEP": "58102-252"
+      "CEP": "58102-138"
+    },
+    {
+      "Nome": "Dalmo",
+      "Numero": "123",
+      "id": "oZGH",
+      "Telefone": "(88)88888-8888",
+      "Endereco": "Rua Golfo San Fernando",
+      "Cidade": "Cabedelo",
+      "Estado": "PB",
+      "Pais": "Brasil",
+      "CEP": "58102-138"
+    },
+    {
+      "Nome": "Leda",
+      "Numero": "123",
+      "id": "uWKu",
+      "Telefone": "(88)88888-8888",
+      "Endereco": "Rua Golfo San Fernando",
+      "Cidade": "Cabedelo",
+      "Estado": "PB",
+      "Pais": "Brasil",
+      "CEP": "58102-138"
+    },
+    {
+      "Nome": "João",
+      "Numero": "123",
+      "id": "G7qz",
+      "Telefone": "(88)88888-8888",
+      "Endereco": "Rua Golfo San Fernando",
+      "Cidade": "Cabedelo",
+      "Estado": "PB",
+      "Pais": "Brasil",
+      "CEP": "58102-138"
+    },
+    {
+      "Nome": "Felipe",
+      "Numero": "987",
+      "id": "zySL",
+      "Telefone": "987",
+      "Endereco": "Rua Golfo San Fernando",
+      "Cidade": "Cabedelo",
+      "Estado": "PB",
+      "Pais": "Brasil",
+      "CEP": "58102-138"
+    },
+    {
+      "Nome": "Claudiane",
+      "Numero": "123",
+      "id": "nXpu",
+      "Telefone": "(88)88888-8888",
+      "Endereco": "Rua Golfo San Fernando",
+      "Cidade": "Cabedelo",
+      "Estado": "PB",
+      "Pais": "Brasil",
+      "CEP": "58102-138"
+    },
+    {
+      "Nome": "Carlos",
+      "Numero": "123",
+      "id": "040M",
+      "Telefone": "(88)88888-8888",
+      "Endereco": "Rua Golfo San Fernando",
+      "Cidade": "Cabedelo",
+      "Estado": "PB",
+      "Pais": "Brasil",
+      "CEP": "58102-138"
+    },
+    {
+      "Nome": "Sandro",
+      "Numero": "123",
+      "id": "Y2BM",
+      "Telefone": "(88)88888-8888",
+      "Endereco": "Rua Golfo San Fernando",
+      "Cidade": "Cabedelo",
+      "Estado": "PB",
+      "Pais": "Brasil",
+      "CEP": "58102-138"
     }
   ]
 }

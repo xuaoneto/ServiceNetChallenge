@@ -194,7 +194,10 @@ const SideMenu = () => {
                 <div className="auths" id="field-name-changes">
                   <p>
                     Nome do campo de alteração:{" "}
-                    <nobr>Colocar sem acento e igual nome na tabela</nobr>
+                    <nobr>
+                      Colocar sem acento e sem Ç e igual nome na tabela exemplo:
+                      Endereco
+                    </nobr>
                   </p>
                   <Field type="text" name="campo" id="campo" />
                 </div>
