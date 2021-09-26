@@ -2,7 +2,7 @@
 
 Esse projeto foi feito em React.js bootstrapped com [Create React App]
 
-## Abra um terminal bash e execute o json-server usando 
+## Abra um terminal bash e execute a API Rest json-server usando 
 
 ### `npx json-server ./data/db.json -p 3500`
 
