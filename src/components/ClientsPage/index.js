@@ -44,7 +44,7 @@ const ClientsPage = () => {
 
         {clients[0] === undefined ? (
           <p className="login-error-delay">
-            Login não identificado ou Sem dados
+            <a href="/login">Login</a> não identificado ou Sem dados
           </p>
         ) : (
           clients.map((item, index) => {
