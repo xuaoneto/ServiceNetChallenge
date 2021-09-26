@@ -28,8 +28,7 @@ Esse projeto foi feito em React.js bootstrapped com [Create React App]
 
 # Detalhes
 
-## Infelizmente so tive 4 dias de desenvolvimento da aplicação e por isso não pude deixa-la 100% segura pois varias coisas que estão no front-end deveria estar no back-end para maior segurança
-
+## Infelizmente so tive 4 dias de desenvolvimento da aplicação e por isso não pude deixa-la 100% pois não fiz um back end pois eu achei que levaria mais tempo fazendo ele, e ai juntei o front com o back mas sei que isso não é boa prática. 
 
 
 
